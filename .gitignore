@@ -1,0 +1,10 @@
+# Standard ignores
+.DS_Store
+Thumbs.db
+node_modules/
+dist/
+build/
+*.log
+.vscode/
+.idea/
+.env
