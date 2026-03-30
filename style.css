@@ -10,6 +10,17 @@
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+/* Scroll Progress Bar */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(to right, var(--accent-color), #a5b4fc);
+    z-index: 2000;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -26,6 +37,24 @@ html {
 
 body {
     overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--glass-border);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
 }
 
 a {
@@ -59,10 +88,27 @@ h4 {
     transition: var(--transition);
 }
 
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(45deg, transparent, var(--glass-border), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
 .glass-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+    transform: translateY(-8px);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 40px rgba(88, 166, 255, 0.15), var(--glass-shadow);
 }
 
 /* Buttons */
@@ -248,6 +294,34 @@ h4 {
     position: relative;
     text-align: center;
     padding: 0 20px;
+    overflow: hidden;
+}
+
+.blob {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(88, 166, 255, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: -1;
+    animation: floatBlob 20s infinite alternate;
+}
+
+.blob-1 {
+    top: -100px;
+    left: -100px;
+}
+
+.blob-2 {
+    bottom: -100px;
+    right: -100px;
+    animation-delay: -10s;
+}
+
+@keyframes floatBlob {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(100px, 100px) scale(1.2); }
 }
 
 .hero-bg {
@@ -410,6 +484,41 @@ h4 {
     margin-bottom: 20px;
 }
 
+.timeline-content-wrapper {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.timeline-text {
+    flex: 1;
+}
+
+.timeline-img {
+    flex: 0 0 250px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: var(--transition);
+}
+
+.timeline-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.timeline-item:hover .timeline-img {
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.timeline-item:hover .timeline-img img {
+    transform: scale(1.1);
+}
+
 .timeline-item ul {
     list-style-position: inside;
     color: var(--text-color);
@@ -428,9 +537,35 @@ h4 {
 }
 
 .project-card {
-    padding: 30px;
+    padding: 0;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+}
+
+.project-img-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.project-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-img-container img {
+    transform: scale(1.1);
+}
+
+.project-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .project-card h3 {
@@ -470,13 +605,18 @@ h4 {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
     margin-bottom: 60px;
+}
+
+.span-2 {
+    grid-column: span 2;
 }
 
 .skill-card {
     padding: 30px;
+    height: 100%;
 }
 
 .skill-card h4 {
@@ -648,6 +788,24 @@ footer {
     }
 }
 
+.slide-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.slide-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.slide-in-left.is-visible,
+.slide-in-right.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
 /* Scroll Animation Classes */
 .fade-in-section {
     opacity: 0;
@@ -663,6 +821,19 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 992px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .span-2 {
+        grid-column: span 1;
+    }
     .education-grid {
         grid-template-columns: 1fr;
     }
@@ -678,6 +849,17 @@ footer {
 
     .timeline-dot {
         left: -29px;
+    }
+
+    .timeline-content-wrapper {
+        flex-direction: column-reverse;
+    }
+
+    .timeline-img {
+        flex: none;
+        width: 100%;
+        height: 200px;
+        margin-bottom: 20px;
     }
 }
 

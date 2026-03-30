@@ -12,7 +12,7 @@
 </head>
 
 <body>
-
+    <div class="scroll-progress"></div>
     <nav class="navbar">
         <div class="nav-content">
             <a href="#" class="logo">
@@ -35,6 +35,8 @@
     </nav>
 
     <header class="hero" id="home">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
         <div class="hero-bg"></div>
         <div class="hero-content">
             <div class="profile-img-container glass-effect fade-in">
@@ -78,52 +80,73 @@
             <div class="section-content fade-in-section">
                 <h2 class="section-title">Professional Experience</h2>
                 <div class="timeline">
-                    <div class="timeline-item glass-card">
+                    <div class="timeline-item glass-card slide-in-left">
                         <div class="timeline-dot"></div>
                         <div class="timeline-date">Apr 2024 – Present</div>
-                        <h3>Information Security Officer & Software Developer</h3>
-                        <h4>Crypto Div. NASTAP – Rawalpindi, Pakistan</h4>
-                        <ul>
-                            <li>Develop and maintain custom software solutions using .NET C#, Python, and JavaScript.</li>
-                            <li>Build responsive web applications with React.js and Node.js for internal use.</li>
-                            <li>Debug and optimize existing codebase to improve system efficiency and reliability.</li>
-                            <li>Evaluate IT and cryptographic products to ensure compliance with security standards.</li>
-                            <li>Collaborate with teams to assess and strengthen system, application, and product security.</li>
-                            <li>Conduct risk assessments, document findings, and recommend effective mitigations.</li>
-                        </ul>
+                        <div class="timeline-content-wrapper">
+                            <div class="timeline-text">
+                                <h3>Information Security Officer & Software Developer</h3>
+                                <h4>Crypto Div. NASTAP – Rawalpindi, Pakistan</h4>
+                                <ul>
+                                    <li>Develop and maintain custom software solutions using .NET C#, Python, and JavaScript.</li>
+                                    <li>Build responsive web applications with React.js and Node.js for internal use.</li>
+                                    <li>Debug and optimize existing codebase to improve system efficiency and reliability.</li>
+                                    <li>Evaluate IT and cryptographic products to ensure compliance with security standards.</li>
+                                    <li>Collaborate with teams to assess and strengthen system, application, and product security.</li>
+                                    <li>Conduct risk assessments, document findings, and recommend effective mitigations.</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-img">
+                                <img src="assets/infosec_exp.png" alt="Information Security & Software Development" loading="lazy">
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="timeline-item glass-card">
+                    <div class="timeline-item glass-card slide-in-right">
                         <div class="timeline-dot"></div>
                         <div class="timeline-date">Sep 2022 – Apr 2024</div>
-                        <h3>IT Officer</h3>
-                        <h4>Bundu Khan Sweets and Bakers – Head Office Lahore, Pakistan</h4>
-                        <ul>
-                            <li>Provided IT support across branches, ensuring reliable networks, smooth system
-                                performance, and data integrity.</li>
-                            <li>Managed branch servers, POS systems, and databases in coordination with head office IT.
-                            </li>
-                            <li>Maintained access control, CCTV systems, and backups in line with security policies.
-                            </li>
-                            <li>Delivered hands-on support for hardware, software, networks, and user accounts.</li>
-                            <li>Assisted in IT planning for new branches, including setup and vendor coordination.</li>
-                        </ul>
+                        <div class="timeline-content-wrapper">
+                            <div class="timeline-text">
+                                <h3>IT Officer</h3>
+                                <h4>Bundu Khan Sweets and Bakers – Head Office Lahore, Pakistan</h4>
+                                <ul>
+                                    <li>Provided IT support across branches, ensuring reliable networks, smooth system
+                                        performance, and data integrity.</li>
+                                    <li>Managed branch servers, POS systems, and databases in coordination with head office IT.
+                                    </li>
+                                    <li>Maintained access control, CCTV systems, and backups in line with security policies.
+                                    </li>
+                                    <li>Delivered hands-on support for hardware, software, networks, and user accounts.</li>
+                                    <li>Assisted in IT planning for new branches, including setup and vendor coordination.</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-img">
+                                <img src="assets/it_officer_exp.png" alt="IT Operations & POS Systems" loading="lazy">
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="timeline-item glass-card">
+                    <div class="timeline-item glass-card slide-in-left">
                         <div class="timeline-dot"></div>
                         <div class="timeline-date">Feb 2020 – Aug 2022</div>
-                        <h3>IT Coordinator</h3>
-                        <h4>Pak Suzuki Dealership – Mianwali, Pakistan</h4>
-                        <ul>
-                            <li>Managed dealership network infrastructure, including LAN/WAN, routers, switches, and
-                                firewalls.</li>
-                            <li>Oversaw on-site servers hosting databases and POS systems, ensuring secure availability.
-                            </li>
-                            <li>Administered access control and CCTV systems, maintaining uptime and compliance.</li>
-                            <li>Provided staff support by resolving IT issues and ensuring smooth daily operations.</li>
-                            <li>Implemented backup procedures and supported disaster recovery planning.</li>
-                        </ul>
+                        <div class="timeline-content-wrapper">
+                            <div class="timeline-text">
+                                <h3>IT Coordinator</h3>
+                                <h4>Pak Suzuki Dealership – Mianwali, Pakistan</h4>
+                                <ul>
+                                    <li>Managed dealership network infrastructure, including LAN/WAN, routers, switches, and
+                                        firewalls.</li>
+                                    <li>Oversaw on-site servers hosting databases and POS systems, ensuring secure availability.
+                                    </li>
+                                    <li>Administered access control and CCTV systems, maintaining uptime and compliance.</li>
+                                    <li>Provided staff support by resolving IT issues and ensuring smooth daily operations.</li>
+                                    <li>Implemented backup procedures and supported disaster recovery planning.</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-img">
+                                <img src="assets/it_coordinator_exp.png" alt="Network Infrastructure Management" loading="lazy">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -134,28 +157,43 @@
                 <h2 class="section-title">Featured Projects</h2>
                 <div class="projects-grid">
                     <div class="project-card glass-card fade-in">
-                        <h3>Custom E-Commerce Web App</h3>
-                        <p>Built a responsive e-commerce platform with dynamic product catalogs and user authentication using modern web technologies.</p>
-                        <div class="project-tags">
-                            <span class="tag">React.js</span>
-                            <span class="tag">Node.js</span>
-                            <span class="tag">CSS</span>
+                        <div class="project-img-container">
+                            <img src="assets/ecommerce_proj.png" alt="E-Commerce Project" loading="lazy">
+                        </div>
+                        <div class="project-info">
+                            <h3>Custom E-Commerce Web App</h3>
+                            <p>Built a responsive e-commerce platform with dynamic product catalogs and user authentication using modern web technologies.</p>
+                            <div class="project-tags">
+                                <span class="tag">React.js</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">CSS</span>
+                            </div>
                         </div>
                     </div>
                     <div class="project-card glass-card fade-in delay-1">
-                        <h3>Inventory Management Solution</h3>
-                        <p>Developed a .NET C# desktop application for local businesses to manage items, generate reports, and track inventory.</p>
-                        <div class="project-tags">
-                            <span class="tag">.NET C#</span>
-                            <span class="tag">Desktop App</span>
+                        <div class="project-img-container">
+                            <img src="assets/inventory_proj.png" alt="Inventory Management" loading="lazy">
+                        </div>
+                        <div class="project-info">
+                            <h3>Inventory Management Solution</h3>
+                            <p>Developed a .NET C# desktop application for local businesses to manage items, generate reports, and track inventory.</p>
+                            <div class="project-tags">
+                                <span class="tag">.NET C#</span>
+                                <span class="tag">Desktop App</span>
+                            </div>
                         </div>
                     </div>
                     <div class="project-card glass-card fade-in delay-2">
-                        <h3>Interactive Web Portfolio</h3>
-                        <p>Designed and built a fast, responsive personal portfolio website to showcase software engineering projects and skills.</p>
-                        <div class="project-tags">
-                            <span class="tag">HTML/CSS</span>
-                            <span class="tag">JavaScript</span>
+                        <div class="project-img-container">
+                            <img src="assets/portfolio_proj.png" alt="Portfolio Project" loading="lazy">
+                        </div>
+                        <div class="project-info">
+                            <h3>Interactive Web Portfolio</h3>
+                            <p>Designed and built a fast, responsive personal portfolio website to showcase software engineering projects and skills.</p>
+                            <div class="project-tags">
+                                <span class="tag">HTML/CSS</span>
+                                <span class="tag">JavaScript</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -168,7 +206,7 @@
 
                 <h3 class="skill-category">Technical Skills</h3>
                 <div class="skills-grid">
-                    <div class="skill-card glass-card">
+                    <div class="skill-card glass-card span-2">
                         <h4>Frontend Web Development</h4>
                         <p>HTML5, CSS3, JavaScript, React.js, Responsive Design, UI/UX implementation.</p>
                     </div>
@@ -180,17 +218,13 @@
                         <h4>Desktop Applications</h4>
                         <p>.NET C#, Windows Forms, WPF, Application Architecture.</p>
                     </div>
-                    <div class="skill-card glass-card">
-                        <h4>Problem Solving</h4>
-                        <p>Bug fixing, Code refactoring, Algorithm optimization, Troubleshooting.</p>
+                    <div class="skill-card glass-card span-2">
+                        <h4>Problem Solving & InfoSec</h4>
+                        <p>Bug fixing, code refactoring, risk assessment, vulnerability mitigation, and cryptographic auditing.</p>
                     </div>
                     <div class="skill-card glass-card">
                         <h4>Development Tools</h4>
                         <p>Git, Version Control, VS Code, CI/CD basic concepts, Agile methodologies.</p>
-                    </div>
-                    <div class="skill-card glass-card">
-                        <h4>Information Security</h4>
-                        <p>Risk assessment, vulnerability mitigation, cryptographic product evaluation, and compliance auditing.</p>
                     </div>
                 </div>
 

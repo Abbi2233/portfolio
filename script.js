@@ -3,11 +3,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.querySelector('.navbar');
     
     window.addEventListener('scroll', () => {
+        // Navbar scroll effect
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
+
+        // Scroll Progress Bar
+        const scrollProgress = document.querySelector('.scroll-progress');
+        const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPosition = window.scrollY;
+        scrollProgress.style.width = (scrollPosition / scrollTotal) * 100 + '%';
     });
 
     // Mobile menu toggle
@@ -67,6 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    const animatedElements = document.querySelectorAll('.fade-in-section');
+    const animatedElements = document.querySelectorAll('.fade-in-section, .timeline-item, .project-card');
     animatedElements.forEach(el => observer.observe(el));
 });
