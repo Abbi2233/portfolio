@@ -1,0 +1,4 @@
+1: run xamp
+2: create database under name education
+3: import the database education.sql
+4: copy eduction folder in xamp htdocs folder

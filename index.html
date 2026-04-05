@@ -1,317 +1,767 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abid Hussain Khan - InfoSec Officer & Software Developer</title>
+    <meta name="description" content="Abid Hussain Khan – Information Security Officer & ICT Administrator. Expert in .NET C#, Python, Network Security, and Systems Administration.">
+    <meta name="keywords" content="Abid Hussain Khan, Information Security Officer, ICT Administrator, Software Developer, .NET, Python, Cisco, InfoSec, Portfolio">
+    <meta name="author" content="Abid Hussain Khan">
+    <meta property="og:title" content="Abid Hussain Khan – InfoSec Officer & ICT Administrator">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Building secure, intelligent, and scalable systems.">
+    <title>Abid Hussain Khan — InfoSec Officer & ICT Administrator</title>
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="scroll-progress"></div>
-    <nav class="navbar">
-        <div class="nav-content">
-            <a href="#" class="logo">
-                <img src="assets/AHK.png" alt="AHK Logo" class="logo-img">
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- ── NAVBAR ── -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="#home" class="nav-logo" aria-label="Home">
+                <img src="NEW LOGO.png" alt="Abid Hussain Khan Logo" class="logo-img"
+                     onerror="this.src='assets/AHK.png'; this.onerror=null;">
             </a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <ul class="nav-links" id="navLinks" role="list">
+                <li><a href="#about" data-section="about">About</a></li>
+                <li><a href="#experience" data-section="experience">Experience</a></li>
+                <li><a href="#projects" data-section="projects">Projects</a></li>
+                <li><a href="#skills" data-section="skills">Skills</a></li>
+                <li><a href="#education" data-section="education">Education</a></li>
+                <li><a href="#contact" data-section="contact">Contact</a></li>
             </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+            <a href="Abid Hussain - Resume.pdf" target="_blank" class="nav-cta btn-primary" id="navResume">
+                <span>Resume</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
+    <!-- ── HERO ── -->
     <header class="hero" id="home">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <div class="profile-img-container glass-effect fade-in">
-                <img src="assets/profile.jpg" alt="Abid Hussain Khan" class="profile-img"
-                    onerror="this.src='https://via.placeholder.com/150';">
+        <canvas id="particleCanvas" aria-hidden="true"></canvas>
+        <div class="hero-glow hero-glow-1" aria-hidden="true"></div>
+        <div class="hero-glow hero-glow-2" aria-hidden="true"></div>
+
+        <div class="hero-content" id="heroContent">
+            <div class="hero-chip reveal-up delay-0">
+                <span class="pulse-dot"></span>
+                Available for Opportunities
             </div>
-            <h1 class="slide-up">Abid Hussain Khan</h1>
-            <h2 class="slide-up delay-1">Information Security Officer & Software Developer</h2>
-            <p class="slide-up delay-2">Building clean, efficient, and user-friendly solutions tailored to client needs.</p>
-            <div class="cta-buttons slide-up delay-3">
-                <a href="#contact" class="btn primary">Contact Me</a>
-                <a href="Abid Hussain - Resume.pdf" target="_blank" class="btn secondary">Download Resume</a>
+
+            <div class="profile-ring reveal-up delay-1">
+                <img src="assets/profile.jpg" alt="Abid Hussain Khan" class="profile-photo"
+                     onerror="this.src='https://ui-avatars.com/api/?name=Abid+Hussain+Khan&size=200&background=00d4ff&color=050b14&bold=true';">
+                <div class="profile-ring-orbit" aria-hidden="true">
+                    <span class="orbit-dot orbit-dot-1"></span>
+                    <span class="orbit-dot orbit-dot-2"></span>
+                    <span class="orbit-dot orbit-dot-3"></span>
+                </div>
+            </div>
+
+            <h1 class="hero-name reveal-up delay-2">Abid Hussain <span class="name-accent">Khan</span></h1>
+
+            <p class="hero-role reveal-up delay-3">
+                <span class="typed-text" id="typedText"></span><span class="typed-cursor" aria-hidden="true">|</span>
+            </p>
+
+            <p class="hero-tagline reveal-up delay-4">
+                Building <strong>secure</strong>, <strong>intelligent</strong>, and <strong>scalable</strong> systems — from desktop apps to enterprise networks and machine learning pipelines.
+            </p>
+
+
+
+
+            <div class="hero-actions reveal-up delay-6">
+                <a href="#contact" class="btn-primary mag-btn" id="heroCta">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    Get In Touch
+                </a>
+                <a href="Abid Hussain - Resume.pdf" target="_blank" class="btn-ghost mag-btn" id="heroResume">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Download CV
+                </a>
             </div>
         </div>
+
+        <a href="#about" class="scroll-hint" aria-label="Scroll to About">
+            <span class="scroll-hint-line"></span>
+        </a>
     </header>
 
     <main>
+
+        <!-- ── ABOUT ── -->
         <section id="about" class="section">
-            <div class="section-content fade-in-section">
-                <h2 class="section-title">About Me</h2>
-                <div class="glass-card about-card">
-                    <p>I am a dedicated Information Security Officer and an experienced Software Developer specializing in Desktop and Web Application Development.</p>
-                    <p>I specialize in:</p>
-                    <p>
-                        ✔ .NET C# Desktop Applications<br>
-                        ✔ Python Development<br>
-                        ✔ HTML, CSS, JavaScript<br>
-                        ✔ JavaScript Web Applications<br>
-                        ✔ Node.js Backend Development<br>
-                        ✔ custom web app with React.js and Node.js<br>
-                        ✔ Fix Bug in your Code
-                    </p>
-                    <p>I focus on building clean, efficient, and user-friendly solutions tailored to client needs.</p>
-                    <p>Whether you need a custom application, bug fixing, or a complete project, I am here to help you with high-quality work and fast delivery.</p>
-                    <p>Let’s build something great together!</p>
+            <div class="section-wrap">
+                <div class="section-head reveal-up">
+                    <span class="section-label">01 / Introduction</span>
+                    <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
                 </div>
-            </div>
-        </section>
 
-        <section id="experience" class="section">
-            <div class="section-content fade-in-section">
-                <h2 class="section-title">Professional Experience</h2>
-                <div class="timeline">
-                    <div class="timeline-item glass-card slide-in-left">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">Apr 2024 – Present</div>
-                        <div class="timeline-content-wrapper">
-                            <div class="timeline-text">
-                                <h3>Information Security Officer & Software Developer</h3>
-                                <h4>Crypto Div. NASTAP – Rawalpindi, Pakistan</h4>
-                                <ul>
-                                    <li>Develop and maintain custom software solutions using .NET C#, Python, and JavaScript.</li>
-                                    <li>Build responsive web applications with React.js and Node.js for internal use.</li>
-                                    <li>Debug and optimize existing codebase to improve system efficiency and reliability.</li>
-                                    <li>Evaluate IT and cryptographic products to ensure compliance with security standards.</li>
-                                    <li>Collaborate with teams to assess and strengthen system, application, and product security.</li>
-                                    <li>Conduct risk assessments, document findings, and recommend effective mitigations.</li>
-                                </ul>
+                <div class="about-grid">
+                    <div class="about-text reveal-left">
+                        <p>I am a dedicated <strong>Information Security Officer</strong> and experienced <strong>ICT Administrator</strong> with a strong background in <strong>Software Development</strong>. Based in Islamabad, Pakistan, and holding a BS in Computer Science, I specialize in building secure, resilient, and high-performance infrastructure.</p>
+                        <p>Focusing on Python and .NET C# for systems and security automation, I bridge the gap between network security and scalable engineering to deliver solutions that are both robust and protected.</p>
+
+                        <!-- Live Code Terminal -->
+                        <div class="code-terminal" aria-label="Code snippet showcasing skills" role="region">
+                            <div class="terminal-bar">
+                                <span class="t-dot t-red"></span>
+                                <span class="t-dot t-yellow"></span>
+                                <span class="t-dot t-green"></span>
+                                <span class="t-title">developer.ts</span>
                             </div>
-                            <div class="timeline-img">
-                                <img src="assets/infosec_exp.png" alt="Information Security & Software Development" loading="lazy">
-                            </div>
+                            <pre class="terminal-body" id="terminalCode"><code></code></pre>
+                        </div>
+                        <div class="about-socials">
+                            <a href="mailto:abidabbi223@gmail.com" class="social-chip" aria-label="Email">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                Email
+                            </a>
+                            <a href="https://www.linkedin.com/in/abid-hussain-khan223" target="_blank" rel="noopener" class="social-chip" aria-label="LinkedIn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                                LinkedIn
+                            </a>
+                            <a href="Abid Hussain - Resume.pdf" target="_blank" class="social-chip" aria-label="Resume">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                Resume
+                            </a>
                         </div>
                     </div>
 
-                    <div class="timeline-item glass-card slide-in-right">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">Sep 2022 – Apr 2024</div>
-                        <div class="timeline-content-wrapper">
-                            <div class="timeline-text">
-                                <h3>IT Officer</h3>
-                                <h4>Bundu Khan Sweets and Bakers – Head Office Lahore, Pakistan</h4>
-                                <ul>
-                                    <li>Provided IT support across branches, ensuring reliable networks, smooth system
-                                        performance, and data integrity.</li>
-                                    <li>Managed branch servers, POS systems, and databases in coordination with head office IT.
-                                    </li>
-                                    <li>Maintained access control, CCTV systems, and backups in line with security policies.
-                                    </li>
-                                    <li>Delivered hands-on support for hardware, software, networks, and user accounts.</li>
-                                    <li>Assisted in IT planning for new branches, including setup and vendor coordination.</li>
-                                </ul>
+                    <div class="about-specs reveal-right">
+                        <div class="spec-card" data-index="0">
+                            <div class="spec-icon-wrap">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
                             </div>
-                            <div class="timeline-img">
-                                <img src="assets/it_officer_exp.png" alt="IT Operations & POS Systems" loading="lazy">
-                            </div>
+                            <div><h4>.NET C# & WPF</h4><p>Desktop & Enterprise Applications</p></div>
                         </div>
-                    </div>
-
-                    <div class="timeline-item glass-card slide-in-left">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">Feb 2020 – Aug 2022</div>
-                        <div class="timeline-content-wrapper">
-                            <div class="timeline-text">
-                                <h3>IT Coordinator</h3>
-                                <h4>Pak Suzuki Dealership – Mianwali, Pakistan</h4>
-                                <ul>
-                                    <li>Managed dealership network infrastructure, including LAN/WAN, routers, switches, and
-                                        firewalls.</li>
-                                    <li>Oversaw on-site servers hosting databases and POS systems, ensuring secure availability.
-                                    </li>
-                                    <li>Administered access control and CCTV systems, maintaining uptime and compliance.</li>
-                                    <li>Provided staff support by resolving IT issues and ensuring smooth daily operations.</li>
-                                    <li>Implemented backup procedures and supported disaster recovery planning.</li>
-                                </ul>
+                        <div class="spec-card" data-index="1">
+                            <div class="spec-icon-wrap">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                             </div>
-                            <div class="timeline-img">
-                                <img src="assets/it_coordinator_exp.png" alt="Network Infrastructure Management" loading="lazy">
+                            <div><h4>React.js · Node.js · Laravel</h4><p>Full-Stack Web Development</p></div>
+                        </div>
+                        <div class="spec-card" data-index="2">
+                            <div class="spec-icon-wrap">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                             </div>
+                            <div><h4>Information Security</h4><p>Risk Assessment · Crypto Auditing · ACLs</p></div>
+                        </div>
+                        <div class="spec-card" data-index="3">
+                            <div class="spec-icon-wrap">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                            </div>
+                            <div><h4>Enterprise Networking</h4><p>Cisco · IPv4/IPv6 · VLANs · SSH</p></div>
+                        </div>
+                        <div class="spec-card" data-index="4">
+                            <div class="spec-icon-wrap">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                            </div>
+                            <div><h4>Machine Learning</h4><p>KNN · SVM · Naive Bayes · Python/Sklearn</p></div>
+                        </div>
+                        <div class="spec-card" data-index="5">
+                            <div class="spec-icon-wrap">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                            </div>
+                            <div><h4>C++ & Algorithms</h4><p>Data Structures · Trees · Graphs</p></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ── EXPERIENCE ── -->
+        <section id="experience" class="section section-alt">
+            <div class="section-wrap">
+                <div class="section-head reveal-up">
+                    <span class="section-label">02 / Career</span>
+                    <h2 class="section-title">Professional <span class="gradient-text">Experience</span></h2>
+                </div>
+
+                <div class="timeline" role="list">
+
+                    <div class="tl-item reveal-up" role="listitem">
+                        <div class="tl-marker">
+                            <div class="tl-dot"></div>
+                            <div class="tl-line" aria-hidden="true"></div>
+                        </div>
+                        <div class="tl-body glass-panel">
+                            <div class="tl-header">
+                                <div>
+                                    <span class="tl-date">Apr 2024 – Present</span>
+                                    <h3 class="tl-title">Information Security Officer & ICT Administrator</h3>
+                                    <p class="tl-org">📍 Crypto Div. NASTAP — Rawalpindi, Pakistan</p>
+                                </div>
+                                <span class="tl-badge active-badge">Current</span>
+                            </div>
+                            <ul class="tl-list">
+                                <li>Develop and maintain custom software solutions using <strong>.NET C#</strong>, <strong>Python</strong>, and <strong>JavaScript</strong>.</li>
+                                <li>Build responsive web applications with <strong>React.js</strong> and <strong>Node.js</strong> for internal organizational use.</li>
+                                <li>Debug and optimize existing codebases to improve system efficiency and reliability.</li>
+                                <li>Evaluate IT and cryptographic products to ensure compliance with security standards.</li>
+                                <li>Collaborate with teams to assess and strengthen system, application, and product security.</li>
+                            </ul>
+                            <div class="tl-tags">
+                                <span class="tech-tag">.NET C#</span>
+                                <span class="tech-tag">React.js</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">InfoSec</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tl-item reveal-up" role="listitem">
+                        <div class="tl-marker">
+                            <div class="tl-dot"></div>
+                            <div class="tl-line" aria-hidden="true"></div>
+                        </div>
+                        <div class="tl-body glass-panel">
+                            <div class="tl-header">
+                                <div>
+                                    <span class="tl-date">Sep 2022 – Apr 2024</span>
+                                    <h3 class="tl-title">IT Officer</h3>
+                                    <p class="tl-org">📍 Bundu Khan Sweets & Bakers — Lahore, Pakistan</p>
+                                </div>
+                            </div>
+                            <ul class="tl-list">
+                                <li>Managed branch servers, <strong>POS systems</strong>, and databases network.</li>
+                                <li>Provided IT support across branches, ensuring reliable systems and data integrity.</li>
+                                <li>Maintained access control, <strong>CCTV</strong> systems, and backup procedures.</li>
+                            </ul>
+                            <div class="tl-tags">
+                                <span class="tech-tag">Network Admin</span>
+                                <span class="tech-tag">POS Systems</span>
+                                <span class="tech-tag">Server Mgmt</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tl-item reveal-up" role="listitem">
+                        <div class="tl-marker">
+                            <div class="tl-dot"></div>
+                        </div>
+                        <div class="tl-body glass-panel">
+                            <div class="tl-header">
+                                <div>
+                                    <span class="tl-date">Feb 2020 – Aug 2022</span>
+                                    <h3 class="tl-title">IT Coordinator</h3>
+                                    <p class="tl-org">📍 Pak Suzuki Dealership — Mianwali, Pakistan</p>
+                                </div>
+                            </div>
+                            <ul class="tl-list">
+                                <li>Managed infrastructure (LAN/WAN), routers, and firewalls.</li>
+                                <li>Oversaw on-site servers and POS systems for dealership operations.</li>
+                                <li>Administered security controls and backup procedures.</li>
+                            </ul>
+                            <div class="tl-tags">
+                                <span class="tech-tag">LAN/WAN</span>
+                                <span class="tech-tag">Routing</span>
+                                <span class="tech-tag">Security</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ── PROJECTS ── -->
         <section id="projects" class="section">
-            <div class="section-content fade-in-section">
-                <h2 class="section-title">Featured Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-card glass-card fade-in">
-                        <div class="project-img-container">
-                            <img src="assets/ecommerce_proj.png" alt="E-Commerce Project" loading="lazy">
-                        </div>
-                        <div class="project-info">
-                            <h3>Custom E-Commerce Web App</h3>
-                            <p>Built a responsive e-commerce platform with dynamic product catalogs and user authentication using modern web technologies.</p>
-                            <div class="project-tags">
-                                <span class="tag">React.js</span>
-                                <span class="tag">Node.js</span>
-                                <span class="tag">CSS</span>
+            <div class="section-wrap">
+                <div class="section-head reveal-up">
+                    <span class="section-label">03 / Portfolio</span>
+                    <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+                    <p class="section-sub">A selection of work spanning security tools, full-stack apps, ML models, and systems software.</p>
+                </div>
+
+                <!-- Filter Tabs -->
+                <div class="project-filters reveal-up" role="group" aria-label="Project categories">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+                    <button class="filter-btn" data-filter="security">Security</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile</button>
+                    <button class="filter-btn" data-filter="ml">ML / AI</button>
+                    <button class="filter-btn" data-filter="desktop">Desktop</button>
+                </div>
+
+                <div class="projects-grid" id="projectsGrid">
+
+                    <article class="project-card glass-panel" data-cat="security fullstack" data-tilt>
+                        <div class="project-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=600&h=340&fit=crop&auto=format" alt="S-Box Cryptographic Tool" loading="lazy">
+                            <div class="project-img-overlay">
+                                <span class="proj-cat-badge">Cryptography Tool</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="project-card glass-card fade-in delay-1">
-                        <div class="project-img-container">
-                            <img src="assets/inventory_proj.png" alt="Inventory Management" loading="lazy">
-                        </div>
-                        <div class="project-info">
-                            <h3>Inventory Management Solution</h3>
-                            <p>Developed a .NET C# desktop application for local businesses to manage items, generate reports, and track inventory.</p>
+                        <div class="project-body">
+                            <h3>S-Box Generator & Cryptographic Analyzer</h3>
+                            <p>Professional desktop tool for generating and analyzing cryptographic S-Boxes using GF(2⁸) Galois Field arithmetic with configurable irreducible polynomials and affine transformations.</p>
                             <div class="project-tags">
-                                <span class="tag">.NET C#</span>
-                                <span class="tag">Desktop App</span>
+                                <span class="tag">Python</span><span class="tag">Tkinter</span><span class="tag">Cryptography</span><span class="tag">GF(2⁸)</span><span class="tag">InfoSec</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="project-card glass-card fade-in delay-2">
-                        <div class="project-img-container">
-                            <img src="assets/portfolio_proj.png" alt="Portfolio Project" loading="lazy">
-                        </div>
-                        <div class="project-info">
-                            <h3>Interactive Web Portfolio</h3>
-                            <p>Designed and built a fast, responsive personal portfolio website to showcase software engineering projects and skills.</p>
-                            <div class="project-tags">
-                                <span class="tag">HTML/CSS</span>
-                                <span class="tag">JavaScript</span>
+                    </article>
+
+                    <article class="project-card glass-panel" data-cat="security desktop" data-tilt>
+                        <div class="project-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&h=340&fit=crop&auto=format" alt="WiFi Security Assessment Tool" loading="lazy">
+                            <div class="project-img-overlay">
+                                <span class="proj-cat-badge">Security Tool</span>
                             </div>
                         </div>
-                    </div>
+                        <div class="project-body">
+                            <h3>WiFi Security Assessment Tool</h3>
+                            <p>Professional lab-grade Wi-Fi security assessment application with real-time Wi-Fi scanning, saved password retrieval, interactive security analysis with live logs, and automated report generator.</p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span><span class="tag">Flet</span><span class="tag">Network Security</span><span class="tag">Cross-Platform</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card glass-panel" data-cat="mobile fullstack" data-tilt>
+                        <div class="project-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=340&fit=crop&auto=format" alt="Friendly Expense Manager" loading="lazy">
+                            <div class="project-img-overlay">
+                                <span class="proj-cat-badge">Mobile App</span>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <h3>Friendly Expense Manager</h3>
+                            <p>Cross-platform mobile app (iOS, Android, Web) for tracking and splitting group expenses, featuring JWT authentication, smart debt minimization algorithm, and real-time balance settlement.</p>
+                            <div class="project-tags">
+                                <span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">Node.js</span><span class="tag">Prisma</span><span class="tag">PostgreSQL</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card glass-panel" data-cat="fullstack" data-tilt>
+                        <div class="project-img-wrap">
+                            <img src="assets/laravel_proj.png" alt="Laravel E-Commerce"
+                                 onerror="this.src='https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=340&fit=crop&auto=format';" loading="lazy">
+                            <div class="project-img-overlay">
+                                <span class="proj-cat-badge">Full-Stack PHP</span>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <h3>Laravel E-Commerce & Retail Apps</h3>
+                            <p>Developed multiple full-featured retail web applications using Laravel's MVC architecture with Blade templates, Eloquent ORM, and secure authentication scaffolding.</p>
+                            <div class="project-tags">
+                                <span class="tag">Laravel</span><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Blade</span><span class="tag">MVC</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card glass-panel" data-cat="ml" data-tilt>
+                        <div class="project-img-wrap">
+                            <img src="assets/ml_proj.png" alt="ML Classification"
+                                 onerror="this.src='https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&h=340&fit=crop&auto=format';" loading="lazy">
+                            <div class="project-img-overlay">
+                                <span class="proj-cat-badge">Data Science / AI</span>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <h3>Machine Learning Classification Models</h3>
+                            <p>Built and evaluated supervised ML classification models using KNN, SVM, and Naive Bayes. Benchmarked with confusion matrices, precision/recall metrics, and ROC curves.</p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span><span class="tag">Scikit-Learn</span><span class="tag">KNN</span><span class="tag">SVM</span><span class="tag">Data Science</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card glass-panel" data-cat="security" data-tilt>
+                        <div class="project-img-wrap">
+                            <img src="assets/network_proj.png" alt="Enterprise Network Design"
+                                 onerror="this.src='https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=340&fit=crop&auto=format';" loading="lazy">
+                            <div class="project-img-overlay">
+                                <span class="proj-cat-badge">Networking & Security</span>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <h3>Enterprise Network Design & Security</h3>
+                            <p>Complex network topologies using Cisco Packet Tracer covering multi-router routing (IPv4/IPv6), VLANs, and security hardening via ACLs, SSH-only access, and encrypted passwords.</p>
+                            <div class="project-tags">
+                                <span class="tag">Cisco Packet Tracer</span><span class="tag">IPv4/IPv6</span><span class="tag">VLANs</span><span class="tag">ACLs</span><span class="tag">SSH</span>
+                            </div>
+                        </div>
+                    </article>
+
+
+
+
                 </div>
             </div>
         </section>
 
-        <section id="skills" class="section">
-            <div class="section-content fade-in-section">
-                <h2 class="section-title">Skills & Expertise</h2>
+        <!-- ── SKILLS ── -->
+        <section id="skills" class="section section-alt">
+            <div class="section-wrap">
+                <div class="section-head reveal-up">
+                    <span class="section-label">04 / Technologies</span>
+                    <h2 class="section-title">Skills & <span class="gradient-text">Expertise</span></h2>
+                    <p class="section-sub">A comprehensive breakdown of my technical and professional capabilities.</p>
+                </div>
 
-                <h3 class="skill-category">Technical Skills</h3>
+                <!-- Animated Skill Bars Row -->
+                <div class="skill-bars-section reveal-up">
+                    <h3 class="skill-bars-title">Core Proficiencies</h3>
+                    <div class="skill-bars-grid">
+                        <div class="skill-bar-item">
+                            <div class="sb-info"><span>.NET C# / WPF</span><span class="sb-pct">90%</span></div>
+                            <div class="sb-track"><div class="sb-fill" data-w="90" style="--clr:#00d4ff"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="sb-info"><span>React.js / Node.js</span><span class="sb-pct">88%</span></div>
+                            <div class="sb-track"><div class="sb-fill" data-w="88" style="--clr:#7c3aed"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="sb-info"><span>Python / ML</span><span class="sb-pct">85%</span></div>
+                            <div class="sb-track"><div class="sb-fill" data-w="85" style="--clr:#10b981"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="sb-info"><span>PHP / Laravel</span><span class="sb-pct">82%</span></div>
+                            <div class="sb-track"><div class="sb-fill" data-w="82" style="--clr:#f59e0b"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="sb-info"><span>InfoSec / Cryptography</span><span class="sb-pct">87%</span></div>
+                            <div class="sb-track"><div class="sb-fill" data-w="87" style="--clr:#f43f5e"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="sb-info"><span>Cisco / Networking</span><span class="sb-pct">84%</span></div>
+                            <div class="sb-track"><div class="sb-fill" data-w="84" style="--clr:#06b6d4"></div></div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="skills-grid">
-                    <div class="skill-card glass-card span-2">
-                        <h4>Frontend Web Development</h4>
-                        <p>HTML5, CSS3, JavaScript, React.js, Responsive Design, UI/UX implementation.</p>
+
+                    <div class="skill-domain glass-panel reveal-up">
+                        <div class="skill-domain-hd">
+                            <span class="skill-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                            </span>
+                            <h3>Frontend</h3>
+                        </div>
+                        <div class="skill-pills">
+                            <span class="s-pill primary">HTML5</span><span class="s-pill primary">CSS3</span>
+                            <span class="s-pill primary">JavaScript ES6+</span><span class="s-pill primary">React.js</span>
+                            <span class="s-pill primary">React Native</span><span class="s-pill primary">Expo</span>
+                            <span class="s-pill">Zustand</span><span class="s-pill">Bootstrap</span>
+                            <span class="s-pill">Responsive Design</span><span class="s-pill">jQuery</span>
+                        </div>
                     </div>
-                    <div class="skill-card glass-card">
-                        <h4>Backend & API</h4>
-                        <p>Node.js, Express, Python, RESTful APIs, Database management.</p>
+
+                    <div class="skill-domain glass-panel reveal-up">
+                        <div class="skill-domain-hd">
+                            <span class="skill-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                            </span>
+                            <h3>Backend & APIs</h3>
+                        </div>
+                        <div class="skill-pills">
+                             <span class="s-pill primary">Node.js</span><span class="s-pill">PHP</span>
+                             <span class="s-pill">Laravel (MVC)</span>
+                            <span class="s-pill primary">Python</span><span class="s-pill primary">Prisma ORM</span>
+                            <span class="s-pill primary">PostgreSQL</span><span class="s-pill">RESTful APIs</span>
+                            <span class="s-pill">MySQL</span><span class="s-pill">SQL Server</span>
+                            <span class="s-pill">JWT Auth</span><span class="s-pill">Flask</span>
+                        </div>
                     </div>
-                    <div class="skill-card glass-card">
-                        <h4>Desktop Applications</h4>
-                        <p>.NET C#, Windows Forms, WPF, Application Architecture.</p>
+
+                    <div class="skill-domain glass-panel reveal-up">
+                        <div class="skill-domain-hd">
+                            <span class="skill-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                            </span>
+                            <h3>Desktop Development</h3>
+                        </div>
+                        <div class="skill-pills">
+                            <span class="s-pill primary">.NET C#</span><span class="s-pill primary">WinForms</span>
+                            <span class="s-pill primary">WPF</span><span class="s-pill primary">Python Tkinter</span>
+                            <span class="s-pill primary">DLL Integration</span><span class="s-pill">MVVM Pattern</span>
+                            <span class="s-pill">COM / P/Invoke</span><span class="s-pill">PyInstaller</span>
+                        </div>
                     </div>
-                    <div class="skill-card glass-card span-2">
-                        <h4>Problem Solving & InfoSec</h4>
-                        <p>Bug fixing, code refactoring, risk assessment, vulnerability mitigation, and cryptographic auditing.</p>
+
+                    <div class="skill-domain glass-panel reveal-up">
+                        <div class="skill-domain-hd">
+                            <span class="skill-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            </span>
+                            <h3>InfoSec & Networking</h3>
+                        </div>
+                        <div class="skill-pills">
+                            <span class="s-pill primary">Risk Assessment</span><span class="s-pill primary">Cryptographic Eval</span>
+                            <span class="s-pill primary">S-Box Design GF(2⁸)</span><span class="s-pill primary">Wi-Fi Security</span>
+                            <span class="s-pill primary">Cisco Packet Tracer</span><span class="s-pill primary">IPv4 / IPv6</span>
+                            <span class="s-pill">VLANs</span><span class="s-pill">ACLs</span>
+                            <span class="s-pill">Secure SSH</span><span class="s-pill">Firewall Mgmt</span>
+                        </div>
                     </div>
-                    <div class="skill-card glass-card">
-                        <h4>Development Tools</h4>
-                        <p>Git, Version Control, VS Code, CI/CD basic concepts, Agile methodologies.</p>
+
+                    <div class="skill-domain glass-panel reveal-up">
+                        <div class="skill-domain-hd">
+                            <span class="skill-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                            </span>
+                            <h3>Machine Learning & Data</h3>
+                        </div>
+                        <div class="skill-pills">
+                            <span class="s-pill primary">Python</span><span class="s-pill primary">Scikit-Learn</span>
+                            <span class="s-pill primary">KNN Classification</span><span class="s-pill primary">SVM</span>
+                            <span class="s-pill primary">Naive Bayes</span><span class="s-pill">Model Evaluation</span>
+                            <span class="s-pill">ROC Curves</span><span class="s-pill">Pandas / NumPy</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-domain glass-panel reveal-up">
+                        <div class="skill-domain-hd">
+                            <span class="skill-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                            </span>
+                            <h3>Core Programming</h3>
+                        </div>
+                        <div class="skill-pills">
+                            <span class="s-pill primary">C++</span><span class="s-pill primary">Linked Lists (SLL/DLL)</span>
+                            <span class="s-pill primary">BST / Binary Trees</span><span class="s-pill primary">Stacks & Queues</span>
+                            <span class="s-pill">Sorting Algorithms</span><span class="s-pill">OOP Principles</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Tech Marquee Strip -->
+                <div class="tech-marquee reveal-up" aria-hidden="true">
+                    <div class="marquee-track">
+                        <span>React.js</span><span>Node.js</span><span>.NET C#</span><span>Python</span><span>Laravel</span><span>PostgreSQL</span><span>Cisco</span><span>TLS/SSL</span><span>Scikit-Learn</span><span>Docker</span><span>JWT</span><span>REST APIs</span><span>WPF</span><span>MongoDB</span><span>Prisma</span><span>TypeScript</span>
+                        <span>React.js</span><span>Node.js</span><span>.NET C#</span><span>Python</span><span>Laravel</span><span>PostgreSQL</span><span>Cisco</span><span>TLS/SSL</span><span>Scikit-Learn</span><span>Docker</span><span>JWT</span><span>REST APIs</span><span>WPF</span><span>MongoDB</span><span>Prisma</span><span>TypeScript</span>
                     </div>
                 </div>
 
-                <h3 class="skill-category">Soft Skills</h3>
-                <div class="skills-grid soft-skills">
-                    <div class="skill-chip glass-card">Problem-Solving</div>
-                    <div class="skill-chip glass-card">Communication</div>
-                    <div class="skill-chip glass-card">Team Collaboration</div>
-                    <div class="skill-chip glass-card">Adaptability</div>
+                <!-- Soft Skills -->
+                <div class="soft-skills-section reveal-up">
+                    <h3 class="soft-skills-title">Soft Skills</h3>
+                    <div class="soft-skills-row">
+                        <div class="soft-chip">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                            Problem-Solving
+                        </div>
+                        <div class="soft-chip">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            Team Collaboration
+                        </div>
+                        <div class="soft-chip">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            Communication
+                        </div>
+                        <div class="soft-chip">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                            Adaptability
+                        </div>
+                        <div class="soft-chip">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                            Technical Docs
+                        </div>
+                        <div class="soft-chip">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            Fast Delivery
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- ── EDUCATION ── -->
         <section id="education" class="section">
-            <div class="section-content fade-in-section">
-                <h2 class="section-title">Education</h2>
-                <div class="education-grid" style="grid-template-columns: 1fr;">
-                    <div class="edu-card glass-card primary-edu" style="text-align: center; max-width: 600px; margin: 0 auto;">
+            <div class="section-wrap">
+                <div class="section-head reveal-up">
+                    <span class="section-label">05 / Background</span>
+                    <h2 class="section-title">Education & <span class="gradient-text">Training</span></h2>
+                </div>
+
+                <div class="edu-grid">
+
+                    <div class="edu-card glass-panel featured-edu reveal-up">
+                        <div class="edu-icon-wrap">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        </div>
+                        <span class="edu-year">2020</span>
                         <h3>BS Computer Science</h3>
-                        <h4>University of Sargodah, Mianwali, Pakistan</h4>
-                        <p class="date">Graduated: Jan 2020</p>
+                        <h4>University of Sargodha, Mianwali Campus</h4>
+                        <p class="edu-loc">📍 Mianwali, Pakistan</p>
+                        <div class="edu-tags">
+                            <span class="edu-tag">Software Engineering</span>
+                            <span class="edu-tag">Data Structures</span>
+                            <span class="edu-tag">Algorithms</span>
+                            <span class="edu-tag">Networking</span>
+                            <span class="edu-tag">Database Systems</span>
+                        </div>
+                    </div>
+
+                    <div class="edu-card glass-panel reveal-up">
+                        <div class="edu-icon-wrap">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        </div>
+                        <span class="edu-year">2022–23</span>
+                        <h3>Cisco Networking Courses</h3>
+                        <h4>Cisco Networking Academy (NetAcad)</h4>
+                        <p class="edu-loc">📍 Online / Self-Study</p>
+                        <div class="edu-tags">
+                            <span class="edu-tag">CCNA Concepts</span>
+                            <span class="edu-tag">Routing & Switching</span>
+                            <span class="edu-tag">IPv6</span>
+                            <span class="edu-tag">Network Security</span>
+                        </div>
+                    </div>
+
+                    <div class="edu-card glass-panel reveal-up">
+                        <div class="edu-icon-wrap">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                        </div>
+                        <span class="edu-year">Ongoing</span>
+                        <h3>Full-Stack Web Development</h3>
+                        <h4>Self-Directed Training & Academic Projects</h4>
+                        <p class="edu-loc">📍 PHP · Laravel · React.js · Node.js</p>
+                        <div class="edu-tags">
+                            <span class="edu-tag">Laravel MVC</span>
+                            <span class="edu-tag">REST APIs</span>
+                            <span class="edu-tag">React.js</span>
+                            <span class="edu-tag">MySQL</span>
+                        </div>
+                    </div>
+
+                    <div class="edu-card glass-panel reveal-up">
+                        <div class="edu-icon-wrap">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                        </div>
+                        <span class="edu-year">2022–23</span>
+                        <h3>Machine Learning & Data Science</h3>
+                        <h4>Academic Coursework & Applied Projects</h4>
+                        <p class="edu-loc">📍 Python-based ML Pipeline Training</p>
+                        <div class="edu-tags">
+                            <span class="edu-tag">Supervised Learning</span>
+                            <span class="edu-tag">KNN / SVM / NBC</span>
+                            <span class="edu-tag">Model Evaluation</span>
+                            <span class="edu-tag">Scikit-Learn</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ── CONTACT ── -->
+        <section id="contact" class="section section-alt">
+            <div class="section-wrap">
+                <div class="section-head reveal-up">
+                    <span class="section-label">06 / Connect</span>
+                    <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+                    <p class="section-sub">Open for freelance projects, full-time roles, and IT consultations.</p>
+                </div>
+
+                <div class="contact-layout">
+                    <div class="contact-info reveal-left">
+                        <div class="contact-item-row glass-panel">
+                            <a href="mailto:abidabbi223@gmail.com" class="contact-link">
+                                <div class="c-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                </div>
+                                <div>
+                                    <span class="c-label">Email</span>
+                                    <span class="c-value">abidabbi223@gmail.com</span>
+                                </div>
+                                <svg class="c-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </a>
+                        </div>
+                        <div class="contact-item-row glass-panel">
+                            <div class="contact-link">
+                                <div class="c-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                </div>
+                                <div>
+                                    <span class="c-label">Phone</span>
+                                    <span class="c-value">+92-315-0123452</span>
+                                    <span class="c-value">+92-315-0123454</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-item-row glass-panel">
+                            <a href="https://www.linkedin.com/in/abid-hussain-khan223" target="_blank" rel="noopener" class="contact-link">
+                                <div class="c-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                                </div>
+                                <div>
+                                    <span class="c-label">LinkedIn</span>
+                                    <span class="c-value">abid-hussain-khan223</span>
+                                </div>
+                                <svg class="c-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </a>
+                        </div>
+                        <div class="contact-item-row glass-panel">
+                            <div class="contact-link">
+                                <div class="c-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                </div>
+                                <div>
+                                    <span class="c-label">Location</span>
+                                    <span class="c-value">Islamabad, Pakistan</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-cta-card glass-panel reveal-right">
+                        <div class="cta-glow" aria-hidden="true"></div>
+                        <h3>Ready to collaborate?</h3>
+                        <p>Whether you have a project in mind, need IT consulting, or want to discuss opportunities — I'd love to hear from you.</p>
+                        <div class="cta-btns">
+                            <a href="mailto:abidabbi223@gmail.com" class="btn-primary mag-btn" id="contactEmail">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                Send Email
+                            </a>
+                            <a href="Abid Hussain - Resume.pdf" target="_blank" class="btn-ghost mag-btn" id="contactResume">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                Download CV
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="section">
-            <div class="section-content fade-in-section">
-                <h2 class="section-title">Get In Touch</h2>
-                <div class="contact-card glass-card">
-                    <p class="contact-desc">Feel free to reach out for opportunities, collaborations, or IT
-                        consultations.</p>
-
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-                                </path>
-                                <polyline points="22,6 12,13 2,6"></polyline>
-                            </svg>
-                            <a href="mailto:abidabbi223@gmail.com">abidabbi223@gmail.com</a>
-                        </div>
-                        <div class="contact-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path
-                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                                </path>
-                            </svg>
-                            <span>+92-315-0123452 <br> +92-315-0123454</span>
-                        </div>
-                        <div class="contact-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path
-                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                </path>
-                                <rect x="2" y="9" width="4" height="12"></rect>
-                                <circle cx="4" cy="4" r="2"></circle>
-                            </svg>
-                            <a href="https://www.linkedin.com/in/abid-hussain-khan223" target="_blank"
-                                rel="noopener noreferrer">LinkedIn Profile</a>
-                        </div>
-                        <div class="contact-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                            <span>Islamabad, Pakistan</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Abid Hussain Khan. All rights reserved.</p>
+    <!-- ── FOOTER ── -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p class="footer-name">Abid Hussain Khan</p>
+            <p class="footer-role">Information Security Officer & Full-Stack Developer</p>
+            <div class="footer-links">
+                <a href="mailto:abidabbi223@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/abid-hussain-khan223" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="Abid Hussain - Resume.pdf" target="_blank">Resume</a>
+            </div>
+            <p class="footer-copy">© 2024 Abid Hussain Khan. All rights reserved.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
-
 </html>

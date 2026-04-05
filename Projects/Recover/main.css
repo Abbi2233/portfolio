@@ -1,0 +1,17 @@
+body{
+  background-image:
+  url('background.jpg');
+}
+body, h2{
+  text-align:center;
+}
+ul{
+list-style-position: inside;
+}
+
+.AI img {
+    width: 100%;
+    text-align: center;
+    position: center;
+    bottom: -100px;
+}
